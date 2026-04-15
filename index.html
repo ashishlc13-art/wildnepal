@@ -1,203 +1,337 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WILD NEPAL | DGO Official Pitch</title>
+    <title>BOARD PITCH | WILD NEPAL (जंगलको सास)</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Oswald:wght@500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* DGO Logo Color Palette */
-            --dgo-purple: #9d4edd;
-            --dgo-pink: #f72585;
-            --dgo-red: #ff4d4d;
-            --dgo-gradient: linear-gradient(90deg, #9d4edd 0%, #f72585 50%, #ff4d4d 100%);
+            --dgo-purple: #9d4edd; --dgo-pink: #f72585; --dgo-red: #ff4d4d;
+            --dgo-gradient: linear-gradient(135deg, #9d4edd 0%, #f72585 50%, #ff4d4d 100%);
         }
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #080808; color: #ffffff; }
-        h1, h2, h3 { font-family: 'Oswald', sans-serif; text-transform: uppercase; letter-spacing: 2px; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #050505; color: #ffffff; scroll-behavior: smooth; }
+        h1, h2, h3, .heading-font { font-family: 'Oswald', sans-serif; text-transform: uppercase; letter-spacing: 2px; }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+        .text-gradient { background: var(--dgo-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .border-gradient { border-image: var(--dgo-gradient) 1; }
+        .bg-dgo { background: var(--dgo-gradient); }
         
-        .bg-dgo-gradient { background: var(--dgo-gradient); }
-        .text-dgo-gradient { 
-            background: var(--dgo-gradient); 
-            -webkit-background-clip: text; 
-            -webkit-text-fill-color: transparent; 
+        .hero-jungle {
+            background: linear-gradient(rgba(5, 5, 5, 0.6), rgba(5, 5, 5, 1)), url('https://images.unsplash.com/photo-1581026020120-007038084476?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover; background-position: center;
         }
+
+        .card-blur { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .glow-red { box-shadow: 0 0 30px rgba(255, 77, 77, 0.15); }
+        .section-tag { font-size: 0.65rem; font-weight: 800; letter-spacing: 0.3em; color: var(--dgo-pink); text-transform: uppercase; margin-bottom: 1rem; display: block; }
         
-        .jungle-bg {
-            background: linear-gradient(rgba(8, 8, 8, 0.8), rgba(8, 8, 8, 0.95)), url('https://images.unsplash.com/photo-1549396551-3afd7bb03b13?q=80&w=2070&auto=format&fit=crop');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-        }
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-track { background: #050505; }
+        ::-webkit-scrollbar-thumb { background: var(--dgo-pink); border-radius: 10px; }
 
-        .board-card {
-            background: rgba(255, 255, 255, 0.03);
-            border-left: 3px solid var(--dgo-pink);
-            transition: 0.3s ease;
-        }
-
-        .board-card:hover { background: rgba(255, 255, 255, 0.07); }
-
-        .btn-dgo {
-            background: var(--dgo-gradient);
-            transition: opacity 0.3s;
-        }
-        .btn-dgo:hover { opacity: 0.85; }
-
-        .price-glow { color: var(--dgo-red); font-family: monospace; font-weight: bold; }
+        .price-detailed { font-size: 1.1rem; color: #ffffff; font-weight: 700; border-bottom: 1px solid rgba(255,255,255,0.1); }
     </style>
 </head>
-<body class="overflow-x-hidden">
+<body>
 
-    <!-- NAVIGATION / LOGO -->
-    <nav class="fixed top-0 w-full z-50 p-6 flex justify-between items-center bg-black/50 backdrop-blur-md">
-        <img src="logo.png" alt="DGO Logo" class="h-10 md:h-12">
-        <div class="hidden md:flex space-x-8 text-xs font-bold tracking-widest uppercase text-gray-400">
-            <a href="#concept" class="hover:text-white transition">The Concept</a>
-            <a href="#season" class="hover:text-white transition">Season Arc</a>
-            <a href="#financials" class="hover:text-white transition">Budget</a>
-            <a href="#roi" class="hover:text-white transition">ROI Strategy</a>
+    <!-- NAVIGATION -->
+    <nav class="fixed top-0 w-full z-50 p-6 flex justify-between items-center bg-black/80 backdrop-blur-md border-b border-white/5">
+        <img src="logo.png" alt="DGO Logo" class="h-8">
+        <div class="hidden lg:flex space-x-10 text-[10px] font-bold tracking-widest uppercase">
+            <a href="#summary" class="hover:text-pink-500 transition">Strategy</a>
+            <a href="#episodes" class="hover:text-pink-500 transition">Season Map</a>
+            <a href="#technical" class="hover:text-pink-500 transition">Logistics</a>
+            <a href="#financials" class="hover:text-pink-500 transition text-pink-500">Board Financials</a>
         </div>
+        <button class="bg-dgo px-5 py-2 rounded text-[10px] font-bold uppercase tracking-wider">Project Phase: Prep</button>
     </nav>
 
-    <!-- HERO SECTION (MAN VS WILD GRIT + PRESTIGE BEAUTY) -->
-    <header class="h-screen jungle-bg flex flex-col justify-center px-10 md:px-32">
-        <div class="mb-4 inline-block px-3 py-1 bg-white/10 text-xs font-bold uppercase tracking-[4px]">DGO Originals Portfolio 2026</div>
-        <h1 class="text-7xl md:text-[9rem] font-bold leading-tight">WILD <span class="text-dgo-gradient">NEPAL</span></h1>
-        <h2 class="text-3xl md:text-5xl mt-[-10px] text-gray-400 font-light">जंगलको सास — The Breath of the Wild</h2>
-        <div class="max-w-xl mt-8 text-lg text-gray-300 border-l-2 border-dgo-pink pl-6 italic">
-            "6 Episodes. One Audacious Host. The complete 5,000-meter vertical spine of Nepal—captured with raw survival grit and prestige cinematography."
-        </div>
-        <div class="mt-12">
-            <a href="#financials" class="btn-dgo px-10 py-4 font-bold rounded shadow-lg uppercase tracking-wider">Executive Presentation</a>
+    <!-- HERO SECTION -->
+    <header class="h-screen hero-jungle flex flex-col justify-center px-10 md:px-32 relative">
+        <span class="section-tag">Internal Board Presentation: April 2026</span>
+        <h1 class="text-7xl md:text-[10rem] font-extrabold leading-none italic mb-2 tracking-tighter">WILD <span class="text-gradient">NEPAL</span></h1>
+        <h2 class="text-3xl md:text-5xl font-light opacity-80 uppercase mt-[-20px] mb-8">जंगलको सास — The Breath of the Wild</h2>
+        <div class="max-w-3xl flex gap-6 items-center bg-white/5 p-6 rounded-lg border-l-4 border-dgo-pink">
+            <p class="text-gray-400 text-lg">
+                The first prestige altitudinal series built for <span class="font-bold text-white tracking-widest">DGO OTT</span>. 
+                Merging survivalist tension, cinematic immersion, and domestic conservation urgency into 4K evergreen content.
+            </p>
         </div>
     </header>
 
-    <!-- EXECUTIVE SUMMARY -->
-    <section id="concept" class="py-24 px-10 md:px-32 bg-black">
-        <div class="grid lg:grid-cols-2 gap-20 items-center">
-            <div>
-                <h3 class="text-dgo-pink font-bold mb-4 uppercase tracking-tighter">I. The Commercial Opportunity</h3>
-                <h2 class="text-5xl font-bold mb-8 italic uppercase">Nature in Nepal is a <span class="text-dgo-gradient italic">Competitive Advantage.</span></h2>
-                <p class="text-gray-400 text-lg leading-relaxed mb-6">
-                    Nepal has globally significant mega-fauna but no premium domestic wildlife content. **Wild Nepal** bridges the gap. It provides the visual splendor of *David Attenborough* but anchors it in the visceral, heartbeat-driven tension of *Man vs. Wild*.
-                </p>
-                <div class="space-y-4">
-                    <div class="flex items-start space-x-4">
-                        <div class="h-8 w-8 flex items-center justify-center rounded bg-dgo-red text-xs font-bold">4K</div>
-                        <p class="text-sm">High-value production creates "evergreen" library content for long-term DGO subscription value.</p>
+    <!-- THE STRATEGY: THREE MODES -->
+    <section id="summary" class="py-32 px-10 md:px-32 grid lg:grid-cols-2 gap-20">
+        <div>
+            <span class="section-tag">I. Narrative Tone Strategy</span>
+            <h2 class="text-5xl font-bold mb-8 italic uppercase">The <span class="text-gradient">Three-Voice</span> Formula</h2>
+            <p class="text-gray-400 text-xl leading-relaxed mb-10">To compete with international streamers (BBC/Netflix), we employ a rotating tonal structure that ensures viewer retention across 40 minutes.</p>
+            
+            <div class="space-y-6">
+                <div class="card-blur p-6 rounded-lg">
+                    <h4 class="font-bold dgo-red uppercase text-lg text-pink-500">01. Wade Mode (The Mystery)</h4>
+                    <p class="text-sm text-gray-500">Detective-style investigation. Is the species endangered? Endangered? Behaving strangely? High stakes, uncertainty.</p>
+                </div>
+                <div class="card-blur p-6 rounded-lg">
+                    <h4 class="font-bold uppercase text-lg text-purple-400">02. Grylls Mode (Field Grit)</h4>
+                    <p class="text-sm text-gray-500">Visceral immersion. The host is wet, cold, tracking through thick grass. Audience feels the environment physically.</p>
+                </div>
+                <div class="card-blur p-6 rounded-lg">
+                    <h4 class="font-bold uppercase text-lg text-red-400">03. Attenborough Mode (Revelation)</h4>
+                    <p class="text-sm text-gray-500">Cinematic wonder. Slow-motion 4K. Minimal narration. The camera lets the animal's life exist on its own terms.</p>
+                </div>
+            </div>
+        </div>
+        <div class="flex flex-col justify-center">
+            <span class="section-tag text-right">Cast Archetype: The Conservation Journalist</span>
+            <img src="https://images.unsplash.com/photo-1621640405524-817a8080c920?q=80&w=1924&auto=format&fit=crop" class="rounded-3xl shadow-2xl filter brightness-75 grayscale hover:grayscale-0 transition duration-700" alt="Camera Guy">
+            <p class="mt-4 text-gray-500 text-right text-xs italic italic">Recommended host must be the audience's eyes/body in the field at all times.</p>
+        </div>
+    </section>
+
+    <!-- SEASON 1 MAP (VERTICAL JOURNEY) -->
+    <section id="episodes" class="py-32 bg-zinc-950 px-10">
+        <div class="text-center mb-24">
+            <h2 class="text-6xl font-extrabold uppercase mb-4 italic">The <span class="text-gradient">Altitudinal</span> Spine</h2>
+            <p class="text-gray-500 font-mono tracking-widest text-xs uppercase">Sequential Journey: 75m Tropical To 5,000m Alpine</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1">
+            <!-- EP 1 -->
+            <div class="p-8 border border-white/5 bg-black/50 relative overflow-hidden group">
+                <div class="section-tag !mb-0 opacity-40">Elevation: 150m</div>
+                <h3 class="text-2xl font-bold uppercase my-3 tracking-tighter italic">Ghost of the Grasslands</h3>
+                <p class="text-xs text-gray-400 mb-6">Bengal Tiger (Panthera tigris). Mystery-led search across Bardiya floodplains. Cold open starts with tiger pugmarks.</p>
+                <div class="bg-dgo h-1 w-0 group-hover:w-full transition-all duration-700"></div>
+            </div>
+            <!-- EP 2 -->
+            <div class="p-8 border border-white/5 bg-black/50">
+                <div class="section-tag !mb-0 opacity-40">Elevation: 100m</div>
+                <h3 class="text-2xl font-bold uppercase my-3 tracking-tighter italic">River of the One-Horned</h3>
+                <p class="text-xs text-gray-400 mb-6">Greater One-Horned Rhino. Investigative look at population success vs. human-wildlife space pressure in Chitwan.</p>
+            </div>
+            <!-- EP 3 -->
+            <div class="p-8 border border-white/5 bg-black/50">
+                <div class="section-tag !mb-0 opacity-40">Elevation: 75m</div>
+                <h3 class="text-2xl font-bold uppercase my-3 tracking-tighter italic">Wings Over Wetlands</h3>
+                <p class="text-xs text-gray-400 mb-6">Koshi Tappu. High-speed avian photography featuring million-bird murmurations and Bar-headed geese migration.</p>
+            </div>
+             <!-- EP 4 -->
+             <div class="p-8 border border-white/5 bg-black/50">
+                <div class="section-tag !mb-0 opacity-40">Elevation: 2,500m</div>
+                <h3 class="text-2xl font-bold uppercase my-3 tracking-tighter italic">The Leopard’s Mid-Hill</h3>
+                <p class="text-xs text-gray-400 mb-6">Common Leopard. Navigating coexistence within 10km of Kathmandu. "The predator living closest to humanity."</p>
+            </div>
+            <!-- EP 5 -->
+            <div class="p-8 border border-white/5 bg-black/40 shadow-2xl border-l-4 border-dgo-pink bg-zinc-900/40">
+                <div class="section-tag !mb-0 !text-pink-500">Elevation: 4,500m (Peak Difficulty)</div>
+                <h3 class="text-2xl font-bold uppercase my-3 tracking-tighter italic text-gradient">The Ghost Cat</h3>
+                <p class="text-xs text-gray-200 mb-6">Snow Leopard. A high-altitude meditation. Manaslu hunt where the absence of the cat defines its survival story.</p>
+            </div>
+             <!-- EP 6 -->
+             <div class="p-8 border border-white/5 bg-black/50">
+                <div class="section-tag !mb-0 opacity-40">Elevation: 5,000m</div>
+                <h3 class="text-2xl font-bold uppercase my-3 tracking-tighter italic">Above the Treeline</h3>
+                <p class="text-xs text-gray-400 mb-6">Red Panda & Himalayan Tahr. The synthesis. One vertical mountain, two endangered worlds, one urgent conclusion.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- TECHNICAL OPERATIONS MATRIX -->
+    <section id="technical" class="py-32 px-10 md:px-32">
+        <div class="flex flex-col lg:flex-row gap-20">
+            <div class="lg:w-1/2">
+                <span class="section-tag">III. Production Ecosystem</span>
+                <h2 class="text-5xl font-extrabold uppercase italic mb-8 underline decoration-dgo-pink">Advanced Logistics</h2>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="card-blur p-4 rounded border-l border-dgo-red">
+                        <span class="mono text-dgo-red text-[10px] block mb-2 uppercase tracking-tighter">Crew Load</span>
+                        <p class="font-bold text-lg italic uppercase leading-none">8–10 Man Team</p>
+                        <span class="text-[10px] text-gray-500">Optimal size for wildlife safety/distraction ratio.</span>
                     </div>
-                    <div class="flex items-start space-x-4">
-                        <div class="h-8 w-8 flex items-center justify-center rounded bg-dgo-purple text-xs font-bold">FWF</div>
-                        <p class="text-sm">Friends for Wild Friends logistics network ensures impossible species access at reduced local costs.</p>
+                    <div class="card-blur p-4 rounded border-l border-dgo-purple">
+                        <span class="mono text-dgo-purple text-[10px] block mb-2 uppercase tracking-tighter">Tech: 4K Master</span>
+                        <p class="font-bold text-lg italic uppercase leading-none">Sony FX6 + Lenses</p>
+                        <span class="text-[10px] text-gray-500 italic font-mono">500mm f/4 L-Glass Primes.</span>
+                    </div>
+                    <div class="card-blur p-4 rounded border-l border-dgo-pink">
+                        <span class="mono text-dgo-pink text-[10px] block mb-2 uppercase tracking-tighter">Safety Link</span>
+                        <p class="font-bold text-lg italic uppercase leading-none">Garmin Satellite</p>
+                        <span class="text-[10px] text-gray-500">Live 18:00 check-ins; Sat-based SOS protocols.</span>
+                    </div>
+                    <div class="card-blur p-4 rounded border-l border-dgo-red">
+                        <span class="mono text-dgo-red text-[10px] block mb-2 uppercase tracking-tighter">Permit Matrix</span>
+                        <p class="font-bold text-lg italic uppercase leading-none">DNPWC x CAAN</p>
+                        <span class="text-[10px] text-gray-500">Commercial filming + Drone flight authority.</span>
                     </div>
                 </div>
             </div>
-            <div class="relative">
-                <div class="absolute inset-0 bg-dgo-gradient opacity-20 blur-3xl rounded-full"></div>
-                <img src="https://images.unsplash.com/photo-1591824438708-ce405f39ba3d?q=80&w=1974&auto=format&fit=crop" class="relative rounded-2xl shadow-2xl" alt="Tiger Portrait">
+            <div class="lg:w-1/2 card-blur p-8 rounded-2xl flex flex-col justify-between">
+                <div>
+                    <h4 class="text-xs font-bold uppercase tracking-widest text-dgo-pink mb-6">— Emergency Protocols (NPR 500k Reserve)</h4>
+                    <ul class="space-y-4 font-light text-gray-400 text-sm">
+                        <li class="flex items-center gap-3">
+                            <span class="bg-red-500 w-1.5 h-1.5 rounded-full"></span>
+                            <span>Helicopter Pre-Authorization: Simrik/Kailash contract standby.</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="bg-red-500 w-1.5 h-1.5 rounded-full"></span>
+                            <span>Snake Bite Facility: Protocol mapped per Terai district (Ep 1-3).</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="bg-red-500 w-1.5 h-1.5 rounded-full"></span>
+                            <span>AMS Management: Mandatory altitude rest at 3,500m (Ep 5-6).</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="bg-white/20 w-full h-[1px]"></span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bg-white/5 p-4 border border-white/5 mt-8 italic text-xs uppercase tracking-tighter">
+                    Lead Agency: FWF Logistics Group. Field Tracking Security Provided.
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- THE SEASON ARC -->
-    <section id="season" class="py-24 bg-zinc-950 px-10">
-        <div class="text-center mb-20">
-            <h2 class="text-4xl font-bold italic underline decoration-dgo-pink decoration-4 underline-offset-8 uppercase">The Altitudinal Journey</h2>
-            <p class="mt-4 text-gray-500 uppercase tracking-widest font-bold text-xs">A narrative of climbing from the tropics to the peaks</p>
+    <!-- FINANCIAL BOARDROOM (THE MONEY) -->
+    <section id="financials" class="py-32 bg-black px-6 md:px-20 lg:px-40">
+        <div class="text-center mb-16">
+            <h2 class="text-7xl font-bold uppercase text-white tracking-tighter mb-2 italic underline underline-offset-8 decoration-dgo-pink">Investment <span class="text-dgo-gradient">Details</span></h2>
+            <p class="text-gray-500 uppercase tracking-widest font-mono text-[10px] mt-4 font-bold tracking-[0.6em]">Board Disclosure Document</p>
         </div>
-        <div class="grid md:grid-cols-3 gap-8">
-            <div class="board-card p-8 rounded-tr-3xl">
-                <span class="text-4xl font-bold text-white opacity-20 mb-4 block">01</span>
-                <h4 class="text-xl font-bold uppercase mb-2">Tiger Grasslands</h4>
-                <p class="text-xs text-gray-500 font-mono mb-4 uppercase tracking-wider">Bardiya | 150m Elevation</p>
-                <p class="text-sm text-gray-400">Investigation into Nepal’s secretive Tiger corridor using camera traps and night observation.</p>
+
+        <!-- Table Master -->
+        <div class="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-3xl glow-red overflow-hidden p-4 md:p-12">
+            <div class="overflow-x-auto">
+                <table class="w-full text-left">
+                    <thead>
+                        <tr class="border-b border-white/10 text-[11px] text-gray-500 uppercase font-bold tracking-[0.4em]">
+                            <th class="py-8 pl-4">Budget Vertical</th>
+                            <th class="py-8">Sub-Categorization & Specs</th>
+                            <th class="py-8 text-right pr-4">Episode Allocation (NPR)</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-gray-200">
+                        <tr class="group hover:bg-white/5 transition border-b border-white/5">
+                            <td class="py-8 pl-4 font-bold text-xl italic uppercase group-hover:text-pink-400">01. Crew Infrastructure</td>
+                            <td class="py-8 opacity-60 text-sm">Series Dir, Wildlife DP, Drone Op, Host, Sound Recordist (Salaries per cycle)</td>
+                            <td class="py-8 text-right pr-4 mono font-bold price-detailed">320,000</td>
+                        </tr>
+                        <tr class="group hover:bg-white/5 transition border-b border-white/5">
+                            <td class="py-8 pl-4 font-bold text-xl italic uppercase group-hover:text-pink-400">02. Pre-Prod & Access</td>
+                            <td class="py-8 opacity-60 text-sm">Recces, DNPWC Filming Permit (Tier 2), CAAN Drone Authorisation</td>
+                            <td class="py-8 text-right pr-4 mono font-bold price-detailed">150,000</td>
+                        </tr>
+                        <tr class="group hover:bg-white/5 transition border-b border-white/5">
+                            <td class="py-8 pl-4 font-bold text-xl italic uppercase group-hover:text-pink-400">03. Cinema Kit & Solar</td>
+                            <td class="py-8 opacity-60 text-sm">Sony FX6, DJI Mavic 3 Pro, High-FOC Long Lens rental (100-600mm)</td>
+                            <td class="py-8 text-right pr-4 mono font-bold price-detailed">120,000</td>
+                        </tr>
+                        <tr class="group hover:bg-white/5 transition border-b border-white/5">
+                            <td class="py-8 pl-4 font-bold text-xl italic uppercase group-hover:text-pink-400">04. Global Mobility</td>
+                            <td class="py-8 opacity-60 text-sm">4x4 Vehicles, Internal STOL Flights (Manaslu), Mules/Porters for High Alti</td>
+                            <td class="py-8 text-right pr-4 mono font-bold price-detailed">130,000</td>
+                        </tr>
+                        <tr class="group hover:bg-white/5 transition border-b border-white/5">
+                            <td class="py-8 pl-4 font-bold text-xl italic uppercase group-hover:text-pink-400">05. Survival Logistics</td>
+                            <td class="py-8 opacity-60 text-sm">Rations, Teahouses, Cold-Weather Camps, Local Fixer/Cook Salary</td>
+                            <td class="py-8 text-right pr-4 mono font-bold price-detailed">165,000</td>
+                        </tr>
+                        <tr class="group hover:bg-white/5 transition border-b border-white/5">
+                            <td class="py-8 pl-4 font-bold text-xl italic uppercase group-hover:text-pink-400">06. OTT Master Post</td>
+                            <td class="py-8 opacity-60 text-sm">Editing (Rough+Fine), 5.1 Atmos Mix, Grade (ProRes 4444 Master)</td>
+                            <td class="py-8 text-right pr-4 mono font-bold price-detailed">200,000</td>
+                        </tr>
+                        <tr class="group hover:bg-white/10 transition border-b border-dgo-pink">
+                            <td class="py-8 pl-4 font-bold text-xl italic uppercase group-hover:text-red-400 text-dgo-red">07. Risk Contingency</td>
+                            <td class="py-8 opacity-60 text-sm text-gray-500">15% Non-spend buffer (Weather delays / Wildlife no-show buffer)</td>
+                            <td class="py-8 text-right pr-4 mono font-bold text-dgo-red price-detailed underline">298,000</td>
+                        </tr>
+                    </tbody>
+                    <tfoot class="bg-black/80">
+                        <tr>
+                            <td class="py-12 pl-6 font-extrabold text-4xl italic text-white underline decoration-dgo-red">Unit Investment / EP</td>
+                            <td></td>
+                            <td class="py-12 pr-6 text-right font-extrabold text-6xl text-white">NPR <span class="text-gradient">1,383,000</span></td>
+                        </tr>
+                    </tfoot>
+                </table>
             </div>
-            <div class="board-card p-8 rounded-tr-3xl">
-                <span class="text-4xl font-bold text-white opacity-20 mb-4 block">04</span>
-                <h4 class="text-xl font-bold uppercase mb-2">The Mid-Hill Leopard</h4>
-                <p class="text-xs text-gray-500 font-mono mb-4 uppercase tracking-wider">Shivapuri | 2,000m Elevation</p>
-                <p class="text-sm text-gray-400">Tracking leopards on the edge of Kathmandu—where humanity and wilderness collide in the dark.</p>
-            </div>
-            <div class="board-card p-8 rounded-tr-3xl border-l-4 border-dgo-red shadow-[0_0_20px_rgba(255,77,77,0.1)] bg-zinc-900/50">
-                <span class="text-4xl font-bold text-dgo-red opacity-80 mb-4 block">05</span>
-                <h4 class="text-xl font-bold uppercase mb-2">The Ghost Cat</h4>
-                <p class="text-xs text-dgo-red font-mono mb-4 uppercase tracking-wider font-bold">Manaslu | 4,500m Elevation</p>
-                <p class="text-sm text-gray-200 font-semibold italic">The season finale quest for the Snow Leopard. True survival cinematography in high altitude.</p>
-            </div>
+        </div>
+
+        <div class="mt-20 flex flex-col md:flex-row gap-12 justify-center items-center opacity-60 font-mono text-[10px] uppercase text-zinc-500 font-bold">
+            <span class="border px-4 py-2 border-zinc-700">Currency: Nepalese Rupee (NPR)</span>
+            <span class="border px-4 py-2 border-zinc-700">Tax status: Inc. VAT Reclaims</span>
+            <span class="border px-4 py-2 border-zinc-700">Production Tier: OTT Mid-Prestige</span>
+            <span class="border px-4 py-2 border-dgo-pink font-bold">Total Season Cycle Cost: ~8.3M</span>
         </div>
     </section>
 
-    <!-- BUDGET TABLE (FINALIZED FOR BOARD) -->
-    <section id="financials" class="py-32 bg-black px-10 md:px-32">
-        <h2 class="text-6xl font-bold text-center mb-16 italic uppercase underline underline-offset-8">Production <span class="text-dgo-gradient italic">Investment</span></h2>
+    <!-- ROI / REVENUE HOOKS -->
+    <section class="py-32 px-10 md:px-40 grid lg:grid-cols-2 gap-20">
+        <div>
+            <h2 class="text-5xl font-extrabold italic uppercase leading-none mb-10"><span class="text-gradient underline decoration-dgo-red underline-offset-8">Monetisation</span> & Global Strategy</h2>
+            <div class="grid grid-cols-2 gap-4">
+                <div class="border-l-4 border-dgo-pink p-4 bg-white/5">
+                    <p class="font-bold uppercase tracking-widest text-[10px] opacity-40 mb-1 font-bold">DGO Exclusivity</p>
+                    <p class="text-xs">Primary window: 6 Months (Revenue drive/Subscriber Acquisition)</p>
+                </div>
+                <div class="border-l-4 border-dgo-purple p-4 bg-white/5">
+                    <p class="font-bold uppercase tracking-widest text-[10px] opacity-40 mb-1 font-bold">Ancillary Treks</p>
+                    <p class="text-xs italic">Every ep advertises an FWF photography tour. Direct tourism link.</p>
+                </div>
+                <div class="border-l-4 border-dgo-red p-4 bg-white/5">
+                    <p class="font-bold uppercase tracking-widest text-[10px] opacity-40 mb-1 font-bold">Global Licensing</p>
+                    <p class="text-xs">Discovery / Netflix secondary rights available after DGO window.</p>
+                </div>
+                <div class="border-l-4 border-white p-4 bg-white/5">
+                    <p class="font-bold uppercase tracking-widest text-[10px] opacity-40 mb-1 font-bold italic">Evergreen IP</p>
+                    <p class="text-xs">Wildlife content value appreciates over time. Low-risk stock asset.</p>
+                </div>
+            </div>
+        </div>
+        <div class="flex flex-col justify-end text-right">
+             <div class="card-blur p-8 rounded-2xl relative overflow-hidden text-center mb-6">
+                 <div class="section-tag italic !mb-4">Proposed Timeline</div>
+                 <h4 class="text-4xl font-bold font-mono tracking-tighter uppercase italic text-gradient mb-8 leading-tight">Aug 2026 — Delivery One</h4>
+                 <div class="flex gap-4 items-center justify-center opacity-40">
+                    <span class="h-1 bg-white flex-1 rounded"></span>
+                    <span class="text-xs uppercase italic tracking-widest italic uppercase tracking-widest italic font-bold">Start: Feb Window</span>
+                    <span class="h-1 bg-white flex-1 rounded"></span>
+                 </div>
+             </div>
+        </div>
+    </section>
+
+    <!-- THE FINISHER / SIGN OFF -->
+    <footer class="py-40 bg-zinc-950 flex flex-col items-center justify-center relative overflow-hidden text-center">
+        <!-- Floating Red Shape -->
+        <div class="absolute -top-20 -left-20 w-80 h-80 bg-dgo opacity-10 blur-[150px] rounded-full"></div>
         
-        <div class="overflow-x-auto rounded-xl border border-white/5 bg-white/5 p-4 md:p-10 shadow-2xl backdrop-blur-lg">
-            <table class="w-full text-left text-sm md:text-base border-collapse">
-                <thead class="text-xs text-gray-400 border-b border-gray-800 tracking-widest font-bold uppercase">
-                    <tr>
-                        <th class="pb-6 px-4">Cost Center</th>
-                        <th class="pb-6 px-4">Line Items Description</th>
-                        <th class="pb-6 px-4 text-right">Investment (NPR)</th>
-                    </tr>
-                </thead>
-                <tbody class="divide-y divide-white/5 font-light text-gray-300">
-                    <tr class="hover:bg-white/5 transition">
-                        <td class="py-6 px-4 font-bold text-white italic">Field Production Crew</td>
-                        <td class="py-6 px-4 italic opacity-70">10 Staff: Series Director, Lead Wildlife DP, Host, Audio & Drones</td>
-                        <td class="py-6 px-4 text-right price-glow">320,000</td>
-                    </tr>
-                    <tr class="hover:bg-white/5 transition">
-                        <td class="py-6 px-4 font-bold text-white italic">Cinema Hardware & Drone</td>
-                        <td class="py-6 px-4 italic opacity-70">4K Master Kits, DJI Pro Systems, Solar charging arrays for altitude</td>
-                        <td class="py-6 px-4 text-right price-glow">120,000</td>
-                    </tr>
-                    <tr class="hover:bg-white/5 transition">
-                        <td class="py-6 px-4 font-bold text-white italic">Himalayan Logistics</td>
-                        <td class="py-6 px-4 italic opacity-70">Porters, high-altitude rucking, teahouses, and expedition permits</td>
-                        <td class="py-6 px-4 text-right price-glow">245,000</td>
-                    </tr>
-                    <tr class="hover:bg-white/5 transition">
-                        <td class="py-6 px-4 font-bold text-white italic">Pre & Post Production</td>
-                        <td class="py-6 px-4 italic opacity-70">Color Grading, 5.1 Mixing, Score Commission, Legal Recces</td>
-                        <td class="py-6 px-4 text-right price-glow">400,000</td>
-                    </tr>
-                    <tr class="hover:bg-white/5 transition font-bold">
-                        <td class="py-6 px-4 text-dgo-red">Contingency & Heli-Evac</td>
-                        <td class="py-6 px-4 italic opacity-70 text-gray-500">15% Production Safety Buffer + Heli Rescue Insurance</td>
-                        <td class="py-6 px-4 text-right text-dgo-red price-glow">298,000</td>
-                    </tr>
-                </tbody>
-                <tfoot>
-                    <tr class="text-3xl md:text-4xl uppercase">
-                        <td class="pt-10 px-4 font-bold italic uppercase underline underline-offset-4 decoration-dgo-red">Season 01 / Per Episode</td>
-                        <td></td>
-                        <td class="pt-10 px-4 text-right font-bold text-white tracking-tighter">NPR <span class="text-dgo-gradient italic">1,383,000</span></td>
-                    </tr>
-                </tfoot>
-            </table>
-        </div>
-        
-        <div class="mt-16 text-center text-gray-500 uppercase tracking-widest text-[10px] italic">
-            Season Budget Strategy: Maximize DGO Visual value by leveraging FWF Logistics & In-house Tracking Expert Access
-        </div>
-    </section>
-
-    <!-- FOOTER / ROI CALL TO ACTION -->
-    <footer id="roi" class="py-40 bg-zinc-950 flex flex-col items-center justify-center text-center">
-        <img src="logo.png" class="h-16 mb-12">
-        <h2 class="text-5xl font-bold uppercase italic italic">DGO x WILD NEPAL</h2>
-        <p class="text-gray-400 mt-6 max-w-2xl px-6 uppercase tracking-widest text-xs italic">
-            Scaling domestic entertainment from the floor of the jungle to the top of the world.  
-            The breath of a wild country is waiting for DGO to bring it home.
+        <img src="logo.png" class="h-14 mb-10 hover:scale-105 transition-all">
+        <h1 class="text-5xl md:text-8xl font-black uppercase tracking-tighter italic mb-4">LEAVE IT ALL ON <span class="text-gradient">SCREEN.</span></h1>
+        <p class="max-w-2xl text-gray-400 font-light px-8 text-xl leading-relaxed opacity-60 italic border-l-2 border-r-2 border-zinc-700 mx-auto px-10">
+            From the jungle fog to the thin mountain air. We track, we struggle, and we capture. The wild doesn't compromise—neither should DGO.
         </p>
-        <div class="mt-12 space-y-4">
-            <button class="btn-dgo px-16 py-6 text-white font-bold rounded shadow-2xl tracking-[5px] uppercase">Initiate Series Commission</button>
-            <p class="text-[9px] text-gray-600 font-mono tracking-widest pt-8 uppercase underline decoration-zinc-700 decoration-1">Developed for DGO by Friends for Wild Friends (FWF) © 2026</p>
+
+        <div class="mt-16 flex flex-col md:flex-row gap-8 items-center justify-center font-bold tracking-[6px] uppercase text-xs tracking-[8px] italic tracking-tighter tracking-wider tracking-widest">
+            <span class="hover:text-pink-500 transition cursor-pointer">Commission Deck</span>
+            <span class="text-gray-800">•</span>
+            <span class="hover:text-pink-500 transition cursor-pointer">Technical Specification </span>
+            <span class="text-gray-800">•</span>
+            <span class="hover:text-pink-500 transition cursor-pointer font-bold">Execute Pre-Prod Cycle</span>
         </div>
+
+        <p class="mt-32 opacity-10 uppercase tracking-[1em] text-[10px] italic">WILD NEPAL x DGO © 2026</p>
+        <p class="mt-4 opacity-5 uppercase font-mono text-[10px]">Reference: WB-Season-One-A-2026</p>
     </footer>
+
+    <!-- STICKY ANCHOR LOGO -->
+    <div class="fixed bottom-10 right-10 bg-white/5 backdrop-blur p-4 rounded-full border border-white/10 glow-red">
+         <img src="logo.png" class="h-6">
+    </div>
 
 </body>
 </html>
